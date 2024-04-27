@@ -24,3 +24,13 @@ class Cart():
         product_ids = self.cart.keys()
         products = Product.objects.filter(id__in=product_ids)
         return products
+
+    def update(self, product, quantity):
+        product_id = str(product)
+        product_qty = int(quantity)
+        ourcart = self.cart
+        ourcart[product_id] = product_qty
+
+        self.session.modified = True
+        thing = self.cart
+        return thing

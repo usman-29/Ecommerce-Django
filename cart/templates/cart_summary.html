@@ -80,6 +80,7 @@
                 </div>
               </div> <br/>
             {% endfor %}
+            <h3>Total: ${{totals}}</h3>
         {% else %}
         There's Nothing In Your Cart...
         <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
@@ -106,6 +107,7 @@ $(document).on('click', '.update-cart', function(e){
   success: function(json){
       //console.log(json)
       //document.getElementById("cart_quantity").textContent = json.qty
+      $('#select{{ product.id }}').val(json.qty);
       location.reload();
   },
 
